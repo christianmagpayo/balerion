@@ -1,0 +1,16 @@
+.ea-focus:focus-visible { outline: none; box-shadow: 0 0 0 2px hsl(var(--ink)), 0 0 0 4px hsl(var(--ember)); }
+.ea-stage { position: relative; overflow: hidden; width: 100%; text-align: left; display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 10px 14px; border-radius: 12px; border: 1px solid hsl(var(--bone) / 0.08); background: transparent; opacity: .5; transition: opacity .45s ease, border-color .45s ease, background-color .45s ease; }
+.ea-stage:hover { opacity: .8; border-color: hsl(var(--bone) / 0.18); }
+.ea-stage.is-on { opacity: 1; border-color: hsl(var(--ember) / 0.55); background: hsl(var(--ember) / 0.08); }
+.ea-timer { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: hsl(var(--ember)); transform-origin: left; animation: ea-timer 4.4s linear forwards; }
+@keyframes ea-timer { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.ea-arc { transition: stroke-dashoffset .8s cubic-bezier(.2,.7,.1,1); }
+.ea-node { opacity: .55; transition: opacity .45s ease; }
+.ea-node.is-done { opacity: .8; }
+.ea-node.is-on { opacity: 1; }
+@keyframes ea-center { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.ea-center { animation: ea-center .5s cubic-bezier(.2,.7,.1,1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .ea-stage, .ea-arc, .ea-node { transition: none; }
+  .ea-timer, .ea-center { animation: none; }
+}

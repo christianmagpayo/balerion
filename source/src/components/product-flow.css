@@ -1,0 +1,13 @@
+.product-flow svg { font-family: var(--app-font-sans), sans-serif; }
+.product-flow-part { opacity: 1; transition: opacity .5s; }
+.product-flow-part.is-muted { opacity: .28; }
+.product-flow-stage { transition: fill .5s, stroke .5s, stroke-width .5s, filter .5s; }
+.product-flow-stage.is-active { fill: hsl(var(--ember) / .16); stroke: hsl(var(--ember)); stroke-width: 2; filter: drop-shadow(0 0 7px hsl(var(--ember) / .3)); }
+.product-flow-label { transition: fill .5s; }
+.product-flow-label.is-active { fill: hsl(var(--ember)); }
+.product-flow-sweep { opacity: 0; transition: opacity .4s; }
+.product-flow-sweep.is-active { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .product-flow-sweep { display: none; }
+  .product-flow-stage, .product-flow-label, .product-flow-part { transition: none; }
+}

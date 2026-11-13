@@ -1,0 +1,31 @@
+.if-head { font-family: var(--app-font-mono); font-size: 10.5px; letter-spacing: .18em; }
+.if-label { font-family: var(--app-font-mono); font-size: 9.5px; letter-spacing: .16em; }
+.if-row { font-family: var(--app-font-sans); font-size: 11.5px; }
+.if-input-row { font-family: var(--app-font-sans); font-size: 10.5px; }
+
+/* Longer lanes with proportional timing retain the unhurried travel speed. */
+@keyframes if-in { 0% { transform: translateX(0); opacity: 0; } 12% { opacity: 1; } 82% { opacity: 1; } 100% { transform: translateX(312px); opacity: 0; } }
+@keyframes if-out { 0% { transform: translateX(0); opacity: 0; } 12% { opacity: 1; } 82% { opacity: 1; } 100% { transform: translateX(-312px); opacity: 0; } }
+.if-doc, .if-ins { transform-box: view-box; opacity: 0; }
+.if-doc { animation: if-in 8.1s cubic-bezier(.45,.05,.55,.95) infinite; }
+.if-ins { animation: if-out 8.1s linear infinite; }
+
+@keyframes if-dash-r { to { stroke-dashoffset: -20; } }
+@keyframes if-dash-l { to { stroke-dashoffset: 20; } }
+.if-dash-r { animation: if-dash-r 2.3s linear infinite; }
+.if-dash-l { animation: if-dash-l 2.3s linear infinite; }
+
+@keyframes if-pulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+.if-pulse { animation: if-pulse 8.1s ease-in-out infinite; }
+@keyframes if-ring { to { transform: rotate(360deg); } }
+.if-ring { transform-box: fill-box; transform-origin: center; animation: if-ring 24s linear infinite; }
+@keyframes if-land { 0%, 70%, 100% { opacity: .7; } 85% { opacity: 1; } }
+.if-land { animation: if-land 2.7s ease-in-out infinite; }
+
+/* Reduced motion: freeze items mid-lane so both directions remain readable */
+@media (prefers-reduced-motion: reduce) {
+  .if-doc, .if-ins, .if-dash-r, .if-dash-l, .if-pulse, .if-ring, .if-land { animation: none; }
+  .if-doc, .if-ins { opacity: 1; }
+  .if-doc.if-n0 { transform: translateX(50px); } .if-doc.if-n1 { transform: translateX(156px); } .if-doc.if-n2 { transform: translateX(260px); }
+  .if-ins.if-n0 { transform: translateX(-50px); } .if-ins.if-n1 { transform: translateX(-156px); } .if-ins.if-n2 { transform: translateX(-260px); }
+}

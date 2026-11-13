@@ -1,0 +1,27 @@
+/* Loan file story: handoff loops vs early flag */
+.lfs-svg text { font-family: var(--app-font-mono); }
+.lfs-role { font-family: var(--app-font-sans) !important; }
+.lfs-permanent-label { opacity: 1; visibility: visible; animation: none; }
+.lfs-permanent-label text { fill: rgb(123, 165, 184); fill-opacity: 1; font-weight: 500; }
+
+.lfs-fwd { stroke-dasharray: 3 5; animation: lfs-dash 1.82s linear infinite; }
+.lfs-back { stroke-dasharray: 2 4; animation: lfs-dash-rev 1.43s linear infinite; }
+@keyframes lfs-dash { to { stroke-dashoffset: -16; } }
+@keyframes lfs-dash-rev { to { stroke-dashoffset: 12; } }
+
+.lfs-node { transform-box: fill-box; transform-origin: center; }
+.lfs-strain { animation: lfs-strain 4.68s ease-in-out infinite; }
+@keyframes lfs-strain { 0%,100% { stroke-opacity: .35; } 50% { stroke-opacity: .9; } }
+
+.lfs-outcome-arrow { display: inline-block; animation: lfs-outcome-drift 3s ease-in-out infinite; }
+.lfs-outcome-down { --outcome-shift: 2px; }
+.lfs-outcome-up { --outcome-shift: -2px; }
+@keyframes lfs-outcome-drift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(var(--outcome-shift)); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .lfs-fwd, .lfs-back, .lfs-strain, .lfs-outcome-arrow { animation: none !important; }
+  .lfs-dot { display: none; }
+}
+
+.lfs-hero-panel { background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.008)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.06); }
+.lfs-hero-panel .lfs-svg { max-width: 460px; }
