@@ -1,0 +1,25 @@
+/* Match section dividers to the homepage content edges, not the viewport. */
+.home-sections > section + section,
+.home-stats {
+  border-top: 0;
+}
+
+.home-sections > section + section::before,
+.home-stats::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(calc(100% - 2.5rem), 1240px);
+  height: 1px;
+  background: hsl(var(--bone) / 0.1);
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .home-sections > section + section::before,
+  .home-stats::before {
+    width: min(calc(100% - 4rem), 1216px);
+  }
+}

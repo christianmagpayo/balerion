@@ -1,0 +1,7 @@
+/* Research page — scoped styles. No glows, no grids, no cursor effects. */
+.rs-ember { color: rgb(123, 165, 184); }
+.rs-q { transition: border-color .3s ease; }
+.rs-q:hover { border-color: rgb(123 165 184 / 0.5); }
+@media (prefers-reduced-motion: reduce) {
+  .rs-q { transition: none !important; }
+}
